@@ -21,9 +21,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 //        window?.rootViewController = ViewController(nibName: "", bundle: nil)
         
-        window?.rootViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "firstController")
-        
+        let vc = FirstViewController(nibName: "FirstViewController", bundle: nil)
+        let naviVc = UINavigationController.init(rootViewController: vc)
+
+        naviVc.navigationBar.isHidden = true
+
+        window?.rootViewController = naviVc
         window?.makeKeyAndVisible()
+        
+//        window?.rootViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "firstController")
+//        window?.makeKeyAndVisible()
         
         return true
     }

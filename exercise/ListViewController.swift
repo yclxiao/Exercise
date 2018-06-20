@@ -44,6 +44,22 @@ class ListViewController: UIViewController,UITableViewDataSource,UITableViewDele
 //        listView.register(UINib(nibName: "SecondCell", bundle: nil), forCellReuseIdentifier: "second")
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.navigationBar.isHidden = false
+        
+        let leftBarButtonItem = UIBarButtonItem(title: "返回", style: UIBarButtonItemStyle.plain, target: self, action: #selector(leftBarButtonItemMethod(sender:)))
+        self.navigationItem.leftBarButtonItem = leftBarButtonItem
+        
+        self.navigationItem.title = "listview"
+        
+    }
+    
+    func leftBarButtonItemMethod(sender:UIBarButtonItem) -> Void {
+        self.navigationController?.popViewController(animated: true)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
